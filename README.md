@@ -1,0 +1,2 @@
+# guiaTarot
+guia
