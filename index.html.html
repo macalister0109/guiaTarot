@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Iniciación al Tarot Rider-Waite</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        @media print {
+            .no-print {
+                display: none;
+            }
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .card-entry {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Indicador de carga (oculto por defecto) -->
+    <div id="loader" class="hidden">
+        <p>Generando PDF, por favor espera...</p>
+    </div>
+
+    <div class="max-w-4xl mx-auto p-4 sm:p-8">
+        <!-- Botón para exportar a PDF -->
+        <div class="text-center mb-8">
+            <button onclick="exportToPDF()" class="bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-blue-700 transition-colors duration-300">
+                Exportar a PDF
+            </button>
+        </div>
+
+        <!-- Contenido de la guía que se exportará -->
+        <div id="pdf-content" class="bg-white p-8 sm:p-12 shadow-lg rounded-lg">
+            <!-- Portada -->
+            <header class="text-center border-b pb-8 mb-8">
+                <h1 class="text-4xl font-bold text-gray-800">Guía de Iniciación al Tarot Rider-Waite</h1>
+                <h2 class="text-2xl font-semibold text-gray-600 mt-2">Un Espejo para el Autoconocimiento</h2>
+                <p class="mt-4 text-lg text-gray-500 max-w-2xl mx-auto">
+                    Descubre cómo utilizar el tarot como herramienta reflexiva y psicológica, abriendo diálogos internos y ofreciendo nuevas perspectivas sobre tu vida.
+                </p>
+            </header>
+
+            <main>
+                <!-- Introducción -->
+                <section class="mb-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Introducción</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Esta guía define el tarot no como un método de adivinación, sino como una <strong>herramienta reflexiva y psicológica</strong>, un valioso recurso simbólico para la introspección. Como sugiere la psicoterapeuta Jessica Dore, "el tarot es como un espejo para la mente: lo que ves depende de lo que necesitas trabajar". No se trata de "creer" en las cartas, sino de utilizar sus ricos símbolos como catalizadores para un diálogo interior profundo y revelador. Nos centraremos en el mazo <strong>Rider-Waite-Smith</strong>, reconocido por su accesibilidad y su potente simbología, ideal para quienes se inician en este camino de autodescubrimiento.
+                    </p>
+                </section>
+
+                <!-- ¿Por Qué el Tarot es Útil para el Autoconocimiento? -->
+                <section class="mb-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">¿Por Qué el Tarot es Útil para el Autoconocimiento?</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        El tarot funciona como un puente hacia nuestro mundo interior. Sus imágenes arquetípicas estimulan la reflexión y ayudan a <strong>desbloquear emociones, creencias o pensamientos inconscientes</strong>. Al igual que los tests proyectivos en psicología, como el de Rorschach, la mente proyecta sus necesidades, conflictos y anhelos en las imágenes, permitiendo que emerjan a la conciencia. Este proceso favorece el acceso a pensamientos y emociones que a menudo son difíciles de verbalizar, facilitando un enfoque más amable y compasivo hacia uno mismo. El verdadero valor no reside en la carta en sí, sino en la <strong>conversación interna que la carta provoca</strong>. Al poner palabras a lo que sentimos, podemos tomar decisiones más conscientes y alineadas con nuestro verdadero ser.
+                    </p>
+                </section>
+
+                <!-- Estructura del Tarot -->
+                <section class="mb-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Estructura del Tarot Rider-Waite-Smith</h3>
+                    <div class="space-y-4 text-gray-700 leading-relaxed">
+                        <p>El mazo consta de 78 cartas, divididas en dos grandes grupos: 22 Arcanos Mayores y 56 Arcanos Menores. La particularidad del mazo Rider-Waite-Smith (RWS) radica en que todas sus cartas, incluidas las de los Arcanos Menores, poseen ilustraciones detalladas que facilitan una interpretación más intuitiva y profunda.</p>
+                        <div>
+                            <h4 class="text-xl font-semibold text-gray-800">Arcanos Mayores</h4>
+                            <p>Representan los grandes temas de la experiencia humana, arquetipos universales y lecciones de vida significativas. Simbolizan las etapas del "viaje del Loco", un camino de evolución personal que aborda temas como la identidad, las relaciones, la transformación y el propósito. Cuando aparecen en una lectura, suelen indicar cambios importantes o lecciones fundamentales que estamos transitando.</p>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-semibold text-gray-800">Arcanos Menores</h4>
+                            <p>Estas 56 cartas se dividen en cuatro palos: <strong>Copas, Bastos, Espadas y Oros (o Pentáculos)</strong>. Se centran en las situaciones cotidianas, los desafíos, las emociones y los eventos del día a día. En la tradición del RWS, los Bastos y las Espadas se consideran de energía "masculina" (activa), mientras que las Copas y los Oros se asocian con la energía "femenina" (receptiva).</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Arcanos Mayores -->
+                <section class="mb-8" style="break-before: page;">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Comprendiendo los Arcanos Mayores: Conceptos Clave</h3>
+                    <p class="text-gray-700 leading-relaxed mb-6">Los Arcanos Mayores son las cartas que representan los temas más significativos y poderosos dentro del Tarot Rider-Waite. Son 22 cartas numeradas del 0 al 21, y encapsulan las lecciones más profundas de la vida, sirviendo como guías en el camino del autodescubrimiento y la evolución personal.</p>
+                    <div class="space-y-8">
+                        <!-- El Loco -->
+                        <div class="card-entry flex flex-col md:flex-row items-start gap-6">
+                            <img src="./assets/images/00 - O Louco.jpg" alt="El Loco" class="w-full md:w-1/4 rounded-lg shadow-md">
+                            <div class="w-full md:w-3/4">
+                                <h4 class="text-lg font-bold text-gray-800">El Loco (0/22)</h4>
+                                <p class="text-gray-600 italic mb-2">Aventura, riesgo, libertad, nuevos inicios, espontaneidad y autenticidad.</p>
+                                <ul class="list-disc list-inside text-gray-700 space-y-1 pl-4">
+                                    <li><strong>Salud:</strong> Dificultades diagnósticas, buena salud general, precaución con accidentes.</li>
+                                    <li><strong>Trabajo:</strong> Falta de decisión, pero también optimismo e innovación.</li>
+                                    <li><strong>Dinero:</strong> Posibles pérdidas, pero un llamado a arriesgarse.</li>
+                                    <li><strong>Amor:</strong> Disfrutar el momento, aventuras sin compromisos.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- El Mago -->
+                        <div class="card-entry flex flex-col md:flex-row items-start gap-6">
+                            <img src="./assets/images/01 - O Mago.jpg" alt="El Mago" class="w-full md:w-1/4 rounded-lg shadow-md">
+                            <div class="w-full md:w-3/4">
+                                <h4 class="text-lg font-bold text-gray-800">El Mago (I)</h4>
+                                <p class="text-gray-600 italic mb-2">Creatividad, transformación y poder. Capacidad de crear la propia realidad.</p>
+                                <ul class="list-disc list-inside text-gray-700 space-y-1 pl-4">
+                                    <li><strong>Salud:</strong> Vitalidad y recuperación.</li>
+                                    <li><strong>Trabajo:</strong> Buenas perspectivas y habilidades.</li>
+                                    <li><strong>Dinero:</strong> Entradas económicas por buena administración.</li>
+                                    <li><strong>Amor:</strong> Inicio de una relación.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- La Sacerdotisa -->
+                        <div class="card-entry flex flex-col md:flex-row items-start gap-6">
+                            <img src="./assets/images/02 - A Papisa.jpg" alt="La Sacerdotisa" class="w-full md:w-1/4 rounded-lg shadow-md">
+                            <div class="w-full md:w-3/4">
+                                <h4 class="text-lg font-bold text-gray-800">La Sacerdotisa (II)</h4>
+                                <p class="text-gray-600 italic mb-2">Intuición, sabiduría oculta y receptividad. Introspección y calma.</p>
+                                <ul class="list-disc list-inside text-gray-700 space-y-1 pl-4">
+                                    <li><strong>Salud:</strong> Enfermedades ocultas.</li>
+                                    <li><strong>Trabajo:</strong> Estabilidad.</li>
+                                    <li><strong>Dinero:</strong> Estancamiento.</li>
+                                    <li><strong>Amor:</strong> Bloqueo.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- La Emperatriz -->
+                        <div class="card-entry flex flex-col md:flex-row items-start gap-6">
+                            <img src="./assets/images/03 - A Imperatriz.jpg" alt="La Emperatriz" class="w-full md:w-1/4 rounded-lg shadow-md">
+                            <div class="w-full md:w-3/4">
+                                <h4 class="text-lg font-bold text-gray-800">La Emperatriz (III)</h4>
+                                <p class="text-gray-600 italic mb-2">Arquetipo de la madre, protección, fertilidad, creatividad y sensualidad.</p>
+                                <ul class="list-disc list-inside text-gray-700 space-y-1 pl-4">
+                                    <li><strong>Salud:</strong> Buen estado general, posibilidad de embarazos.</li>
+                                    <li><strong>Trabajo:</strong> Nuevos proyectos en camino.</li>
+                                    <li><strong>Dinero:</strong> Estabilidad económica.</li>
+                                    <li><strong>Amor:</strong> Favorable y fértil.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- El Emperador -->
+                        <div class="card-entry flex flex-col md:flex-row items-start gap-6">
+                            <img src="./assets/images/04 - O Imperador.jpg" alt="El Emperador" class="w-full md:w-1/4 rounded-lg shadow-md">
+                            <div class="w-full md:w-3/4">
+                                <h4 class="text-lg font-bold text-gray-800">El Emperador (IV)</h4>
+                                <p class="text-gray-600 italic mb-2">Autoridad, poder, estabilidad y liderazgo. Figura del padre.</p>
+                                <ul class="list-disc list-inside text-gray-700 space-y-1 pl-4">
+                                    <li><strong>Salud:</strong> Resistencia física y recuperación.</li>
+                                    <li><strong>Trabajo:</strong> Estabilidad y liderazgo.</li>
+                                    <li><strong>Dinero:</strong> Riqueza y seguridad financiera.</li>
+                                    <li><strong>Amor:</strong> Pasión y estabilidad.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- El Sumo Sacerdote -->
+                        <div class="card-entry flex flex-col md:flex-row items-start gap-6">
+                            <img src="./assets/images/05 - Hierofante.jpg" alt="El Sumo Sacerdote" class="w-full md:w-1/4 rounded-lg shadow-md">
+                            <div class="w-full md:w-3/4">
+                                <h4 class="text-lg font-bold text-gray-800">El Sumo Sacerdote (V)</h4>
+                                <p class="text-gray-600 italic mb-2">Mediador, guía, normas y comunicación. El consejero.</p>
+                                <ul class="list-disc list-inside text-gray-700 space-y-1 pl-4">
+                                    <li><strong>Salud:</strong> Alteraciones en el lenguaje, hospitales.</li>
+                                    <li><strong>Trabajo:</strong> Estabilidad y prestigio.</li>
+                                    <li><strong>Dinero:</strong> Buenas perspectivas.</li>
+                                    <li><strong>Amor:</strong> Relaciones formales, matrimonio.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Los Enamorados -->
+                        <div class="card-entry flex flex-col md:flex-row items-start gap-6">
+                            <img src="./assets/images/06 - Os Enamorados.jpg" alt="Los Enamorados" class="w-full md:w-1/4 rounded-lg shadow-md">
+                            <div class="w-full md:w-3/4">
+                                <h4 class="text-lg font-bold text-gray-800">Los Enamorados (VI)</h4>
+                                <p class="text-gray-600 italic mb-2">Amor, unión y elección. Armonía y equilibrio interno.</p>
+                                <ul class="list-disc list-inside text-gray-700 space-y-1 pl-4">
+                                    <li><strong>Salud:</strong> Diagnósticos inciertos.</li>
+                                    <li><strong>Trabajo:</strong> Decisiones laborales importantes, dudas.</li>
+                                    <li><strong>Dinero:</strong> La buena gestión es clave.</li>
+                                    <li><strong>Amor:</strong> Un buen amor, decisiones en pareja.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- El Carro -->
+                        <div class="card-entry flex flex-col md:flex-row items-start gap-6">
+                            <img src="./assets/images/07 - A Carruagem.jpg" alt="El Carro" class="w-full md:w-1/4 rounded-lg shadow-md">
+                            <div class="w-full md:w-3/4">
+                                <h4 class="text-lg font-bold text-gray-800">El Carro (VII)</h4>
+                                <p class="text-gray-600 italic mb-2">Madurez, control y victoria. Éxito tras el esfuerzo.</p>
+                                <ul class="list-disc list-inside text-gray-700 space-y-1 pl-4">
+                                    <li><strong>Salud:</strong> Buena condición, necesidad de actividad.</li>
+                                    <li><strong>Trabajo:</strong> Nuevas oportunidades.</li>
+                                    <li><strong>Dinero:</strong> Mejora en la situación financiera.</li>
+                                    <li><strong>Amor:</strong> Conquista, movimiento.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- La Fuerza -->
+                        <div class="card-entry flex flex-col md:flex-row items-start gap-6">
+                            <img src="./assets/images/08 - A Força.jpg" alt="La Fuerza" class="w-full md:w-1/4 rounded-lg shadow-md">
+                            <div class="w-full md:w-3/4">
+                                <h4 class="text-lg font-bold text-gray-800">La Fuerza (VIII)</h4>
+                                <p class="text-gray-600 italic mb-2">Contradicciones, equilibrio y pasión. Domesticar las fuerzas internas.</p>
+                                <ul class="list-disc list-inside text-gray-700 space-y-1 pl-4">
+                                    <li><strong>Salud:</strong> Buena recuperación.</li>
+                                    <li><strong>Trabajo:</strong> Capacidad de liderazgo.</li>
+                                    <li><strong>Dinero:</strong> Estabilidad financiera.</li>
+                                    <li><strong>Amor:</strong> Pasión, deseo, contradicciones.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- El Ermitaño -->
+                        <div class="card-entry flex flex-col md:flex-row items-start gap-6">
+                            <img src="./assets/images/09 - O Heremita.jpg" alt="El Ermitaño" class="w-full md:w-1/4 rounded-lg shadow-md">
+                            <div class="w-full md:w-3/4">
+                                <h4 class="text-lg font-bold text-gray-800">El Ermitaño (IX)</h4>
+                                <p class="text-gray-600 italic mb-2">Soledad, sabiduría e introspección. Prudencia y silencio.</p>
+                                <ul class="list-disc list-inside text-gray-700 space-y-1 pl-4">
+                                    <li><strong>Salud:</strong> Reposo, posible apoyo psicológico.</li>
+                                    <li><strong>Trabajo:</strong> Áreas de investigación, responsabilidad.</li>
+                                    <li><strong>Dinero:</strong> Ahorro y crecimiento lento.</li>
+                                    <li><strong>Amor:</strong> Distanciamiento, introspección.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- La Rueda de la Fortuna -->
+                        <div class="card-entry flex flex-col md:flex-row items-start gap-6">
+                            <img src="./assets/images/10 - A Roda Da Fortuna.jpg" alt="La Rueda de la Fortuna" class="w-full md:w-1/4 rounded-lg shadow-md">
+                            <div class="w-full md:w-3/4">
+                                <h4 class="text-lg font-bold text-gray-800">La Rueda de la Fortuna (X)</h4>
+                                <p class="text-gray-600 italic mb-2">Destino, cambio y movimiento. Ciclos de la vida.</p>
+                                <ul class="list-disc list-inside text-gray-700 space-y-1 pl-4">
+                                    <li><strong>Salud:</strong> Cambios imprevistos.</li>
+                                    <li><strong>Trabajo:</strong> Mejora, cambios favorables.</li>
+                                    <li><strong>Dinero:</strong> Suerte inesperada.</li>
+                                    <li><strong>Amor:</strong> Inestabilidad, posible retorno.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- La Justicia -->
+                        <div class="card-entry flex flex-col md:flex-row items-start gap-6">
+                            <img src="./assets/images/11 - A Justiça.jpg" alt="La Justicia" class="w-full md:w-1/4 rounded-lg shadow-md">
+                            <div class="w-full md:w-3/4">
+                                <h4 class="text-lg font-bold text-gray-800">La Justicia (XI)</h4>
+                                <p class="text-gray-600 italic mb-2">Equilibrio, rigor y decisión. Restablecer el orden.</p>
+                                <ul class="list-disc list-inside text-gray-700 space-y-1 pl-4">
+                                    <li><strong>Salud:</strong> Problemas de rigidez.</li>
+                                    <li><strong>Trabajo:</strong> Burocracia, legalización.</li>
+                                    <li><strong>Dinero:</strong> Neutral; influenciado por temas legales.</li>
+                                    <li><strong>Amor:</strong> Separación o cortes necesarios.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- El Colgado -->
+                        <div class="card-entry flex flex-col md:flex-row items-start gap-6">
+                            <img src="./assets/images/12 - O Enforcado.jpg" alt="El Colgado" class="w-full md:w-1/4 rounded-lg shadow-md">
+                            <div class="w-full md:w-3/4">
+                                <h4 class="text-lg font-bold text-gray-800">El Colgado (XII)</h4>
+                                <p class="text-gray-600 italic mb-2">Reflexión, sacrificio y cambio de perspectiva.</p>
+                                <ul class="list-disc list-inside text-gray-700 space-y-1 pl-4">
+                                    <li><strong>Salud:</strong> Temas hereditarios, presión arterial.</li>
+                                    <li><strong>Trabajo:</strong> Dificultad, espera de cambio.</li>
+                                    <li><strong>Dinero:</strong> Desinterés por lo material.</li>
+                                    <li><strong>Amor:</strong> Crisis, necesidad de ver las cosas de otra manera.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- La Muerte -->
+                        <div class="card-entry flex flex-col md:flex-row items-start gap-6">
+                            <img src="./assets/images/13 - A Morte.jpg" alt="La Morte" class="w-full md:w-1/4 rounded-lg shadow-md">
+                            <div class="w-full md:w-3/4">
+                                <h4 class="text-lg font-bold text-gray-800">La Muerte (XIII)</h4>
+                                <p class="text-gray-600 italic mb-2">Transformación, cambio y renacimiento. Soltar lo antiguo.</p>
+                                <ul class="list-disc list-inside text-gray-700 space-y-1 pl-4">
+                                    <li><strong>Salud:</strong> Temas óseos.</li>
+                                    <li><strong>Trabajo:</strong> Cambio, posible mejora.</li>
+                                    <li><strong>Dinero:</strong> Cambio de fortuna, herencia.</li>
+                                    <li><strong>Amor:</strong> Fin de una etapa.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- La Templanza -->
+                        <div class="card-entry flex flex-col md:flex-row items-start gap-6">
+                            <img src="./assets/images/14 - A Temperança.jpg" alt="La Templanza" class="w-full md:w-1/4 rounded-lg shadow-md">
+                            <div class="w-full md:w-3/4">
+                                <h4 class="text-lg font-bold text-gray-800">La Templanza (XIV)</h4>
+                                <p class="text-gray-600 italic mb-2">Armonía, equilibrio, paciencia y sanación.</p>
+                                <ul class="list-disc list-inside text-gray-700 space-y-1 pl-4">
+                                    <li><strong>Salud:</strong> Muy buena; posible sanación.</li>
+                                    <li><strong>Trabajo:</strong> Progreso, estabilidad.</li>
+                                    <li><strong>Dinero:</strong> Estabilidad económica.</li>
+                                    <li><strong>Amor:</strong> Amor correspondido y armonioso.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- El Diablo -->
+                        <div class="card-entry flex flex-col md:flex-row items-start gap-6">
+                            <img src="./assets/images/15 - O Diabo.jpg" alt="El Diablo" class="w-full md:w-1/4 rounded-lg shadow-md">
+                            <div class="w-full md:w-3/4">
+                                <h4 class="text-lg font-bold text-gray-800">El Diablo (XV)</h4>
+                                <p class="text-gray-600 italic mb-2">Apego, tentación, materialismo y obsesiones.</p>
+                                <ul class="list-disc list-inside text-gray-700 space-y-1 pl-4">
+                                    <li><strong>Salud:</strong> Enfermedades crónicas, adicciones.</li>
+                                    <li><strong>Trabajo:</strong> Éxito en finanzas o actividades cuestionables.</li>
+                                    <li><strong>Dinero:</strong> Fortuna en negocios poco éticos.</li>
+                                    <li><strong>Amor:</strong> Relaciones posesivas, pasión.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- La Torre -->
+                        <div class="card-entry flex flex-col md:flex-row items-start gap-6">
+                            <img src="./assets/images/16 - A Torre.jpg" alt="La Torre" class="w-full md:w-1/4 rounded-lg shadow-md">
+                            <div class="w-full md:w-3/4">
+                                <h4 class="text-lg font-bold text-gray-800">La Torre (XVI)</h4>
+                                <p class="text-gray-600 italic mb-2">Libertad, ruptura y transformación. Cambios repentinos.</p>
+                                <ul class="list-disc list-inside text-gray-700 space-y-1 pl-4">
+                                    <li><strong>Salud:</strong> Corazón, presión sanguínea.</li>
+                                    <li><strong>Trabajo:</strong> Pérdidas, ruptura de proyectos.</li>
+                                    <li><strong>Dinero:</strong> Siempre indica pérdidas.</li>
+                                    <li><strong>Amor:</strong> Ruptura, conflictos.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- La Estrella -->
+                        <div class="card-entry flex flex-col md:flex-row items-start gap-6">
+                            <img src="./assets/images/17 - A Estrela.jpg" alt="La Estrella" class="w-full md:w-1/4 rounded-lg shadow-md">
+                            <div class="w-full md:w-3/4">
+                                <h4 class="text-lg font-bold text-gray-800">La Estrella (XVII)</h4>
+                                <p class="text-gray-600 italic mb-2">Esperanza, inspiración y renovación. Creatividad.</p>
+                                <ul class="list-disc list-inside text-gray-700 space-y-1 pl-4">
+                                    <li><strong>Salud:</strong> Bienestar y mejora general.</li>
+                                    <li><strong>Trabajo:</strong> Éxito en profesiones creativas.</li>
+                                    <li><strong>Dinero:</strong> Sin preocupaciones económicas.</li>
+                                    <li><strong>Amor:</strong> Oportunidades, amor genuino.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- La Luna -->
+                        <div class="card-entry flex flex-col md:flex-row items-start gap-6">
+                            <img src="./assets/images/18 - A Lua.jpg" alt="La Luna" class="w-full md:w-1/4 rounded-lg shadow-md">
+                            <div class="w-full md:w-3/4">
+                                <h4 class="text-lg font-bold text-gray-800">La Luna (XVIII)</h4>
+                                <p class="text-gray-600 italic mb-2">Intuición, sueños y el inconsciente. Confusión.</p>
+                                <ul class="list-disc list-inside text-gray-700 space-y-1 pl-4">
+                                    <li><strong>Salud:</strong> Embarazo, estados depresivos.</li>
+                                    <li><strong>Trabajo:</strong> Imaginación, memoria visual.</li>
+                                    <li><strong>Dinero:</strong> Estabilidad moderada, ahorro familiar.</li>
+                                    <li><strong>Amor:</strong> Inseguridades, miedos.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- El Sol -->
+                        <div class="card-entry flex flex-col md:flex-row items-start gap-6">
+                            <img src="./assets/images/19 - O Sol.jpg" alt="El Sol" class="w-full md:w-1/4 rounded-lg shadow-md">
+                            <div class="w-full md:w-3/4">
+                                <h4 class="text-lg font-bold text-gray-800">El Sol (XIX)</h4>
+                                <p class="text-gray-600 italic mb-2">Felicidad, éxito, claridad y culminación.</p>
+                                <ul class="list-disc list-inside text-gray-700 space-y-1 pl-4">
+                                    <li><strong>Salud:</strong> Buena salud, recuperación rápida.</li>
+                                    <li><strong>Trabajo:</strong> Éxito y reconocimiento.</li>
+                                    <li><strong>Dinero:</strong> Riqueza, beneficios y lujo.</li>
+                                    <li><strong>Amor:</strong> Relación feliz y clara.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- El Juicio -->
+                        <div class="card-entry flex flex-col md:flex-row items-start gap-6">
+                            <img src="./assets/images/20 - O Julgamento.jpg" alt="El Juicio" class="w-full md:w-1/4 rounded-lg shadow-md">
+                            <div class="w-full md:w-3/4">
+                                <h4 class="text-lg font-bold text-gray-800">El Juicio (XX)</h4>
+                                <p class="text-gray-600 italic mb-2">Despertar, renovación y transformación. Liberación.</p>
+                                <ul class="list-disc list-inside text-gray-700 space-y-1 pl-4">
+                                    <li><strong>Salud:</strong> Enfermedades recurrentes, liberación de adicciones.</li>
+                                    <li><strong>Trabajo:</strong> Cambio de trabajo, reconocimiento.</li>
+                                    <li><strong>Dinero:</strong> Dinero pendiente de resolución.</li>
+                                    <li><strong>Amor:</strong> Dar vuelta la página, perdonar.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- El Mundo -->
+                        <div class="card-entry flex flex-col md:flex-row items-start gap-6">
+                            <img src="./assets/images/21 - O Mundo.jpg" alt="El Mundo" class="w-full md:w-1/4 rounded-lg shadow-md">
+                            <div class="w-full md:w-3/4">
+                                <h4 class="text-lg font-bold text-gray-800">El Mundo (XXI)</h4>
+                                <p class="text-gray-600 italic mb-2">Autorrealización, integración, triunfo y equilibrio perfecto.</p>
+                                <ul class="list-disc list-inside text-gray-700 space-y-1 pl-4">
+                                    <li><strong>Salud:</strong> Buena salud general.</li>
+                                    <li><strong>Trabajo:</strong> Éxito y reconocimientos.</li>
+                                    <li><strong>Dinero:</strong> Riqueza y liberación económica.</li>
+                                    <li><strong>Amor:</strong> Favorable, amor correspondido.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Arcanos Menores y Elementos -->
+                <section class="mb-8" style="break-before: page;">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Los Arcanos Menores y los Cuatro Elementos</h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">Cada palo de los Arcanos Menores se corresponde con uno de los cuatro elementos y un centro energético del ser humano.</p>
+                    <div class="space-y-4">
+                        <p><strong>Oros (Tierra):</strong> Se relaciona con el <strong>centro material</strong>: el cuerpo, la salud, el trabajo, el dinero, el hogar y los hábitos. Su energía es densa y sus cambios son lentos pero estables.</p>
+                        <p><strong>Bastos (Fuego):</strong> Se asocia con el <strong>centro sexual-creativo</strong>: la acción, el deseo, la pasión, la energía vital y el impulso. Su energía es rápida, intensa y expansiva.</p>
+                        <p><strong>Espadas (Aire):</strong> Representa el <strong>centro intelectual</strong>: la mente, la comunicación, las creencias, los pensamientos y los desafíos mentales. Su energía es veloz y puede ser tanto limitante como liberadora.</p>
+                        <p><strong>Copas (Agua):</strong> Simboliza el <strong>centro emocional</strong>: los afectos, los sentimientos, la intuición y la espiritualidad. Su energía es sutil y puede manifestarse de forma luminosa o tormentosa.</p>
+                    </div>
+                </section>
+                
+                <!-- Simbología y Colores -->
+                 <section class="mb-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Simbología y el Significado de los Colores</h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">Los colores en las cartas del RWS aportan capas adicionales de significado.</p>
+                    <div class="grid md:grid-cols-2 gap-4 text-gray-700">
+                        <p><strong>Rojo:</strong> Pasión, acción, impulso, amor (Ej: El Emperador).</p>
+                        <p><strong>Naranja:</strong> Armonía, sociabilidad, aspiración (Ej: Sota de Bastos).</p>
+                        <p><strong>Amarillo:</strong> Creatividad, intelecto, claridad, optimismo (Ej: El Sol).</p>
+                        <p><strong>Verde:</strong> Crecimiento, naturaleza, salud (Ej: El 7 de Bastos).</p>
+                        <p><strong>Azul:</strong> Intuición, subconsciente, libertad (Ej: La Sacerdotisa).</p>
+                        <p><strong>Violeta:</strong> Espiritualidad, altos ideales, paz (Ej: La Justicia).</p>
+                        <p><strong>Marrón:</strong> Conexión con la tierra, estabilidad (Ej: Figuras de Oros).</p>
+                        <p><strong>Gris:</strong> Neutralidad, incertidumbre, misterio (Ej: El Ermitaño).</p>
+                        <p><strong>Negro:</strong> Crisis, cambio, fuerza (Ej: La Torre, El Diablo).</p>
+                        <p><strong>Blanco:</strong> Pureza, iluminación, inocencia (Ej: La Estrella).</p>
+                    </div>
+                </section>
+
+                <!-- Cierre -->
+                <footer class="text-center border-t pt-8 mt-8">
+                    <p class="text-gray-700 leading-relaxed">
+                        Cada carta del tarot es un universo por descubrir. Recuerda que el tarot no te dice qué hacer, sino que te muestra un reflejo de tu mundo interior para que tú, con mayor claridad y conciencia, puedas tomar las mejores decisiones. Con constancia, estudio y práctica, el tarot se convertirá en un valioso compañero en tu viaje de autoconocimiento.
+                    </p>
+                </footer>
+            </main>
+        </div>
+    </div>
+
+</body>
+</html>
